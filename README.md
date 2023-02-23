@@ -28,7 +28,7 @@ const mesh = init( // returns THREE.Mesh
 );
 ```
 
-Object `config` will be interactive, any changes to its properties will be reflected on the next mesh render.
+Object `config` will be interactive, any changes to its properties will be reflected in real time on the next mesh render.
 
 Live example:
 https://alikim.com/qcode/html/edge_finder.html
