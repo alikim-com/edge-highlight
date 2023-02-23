@@ -23,7 +23,7 @@ const mesh = init( // returns THREE.Mesh
    THREE.ShaderMaterial, 
    THREE.Float32BufferAttribute, 
    config, 
-   0.001, // edge detection precision in range (0, 1), higher values detect sharper edges
+   0.001, // edge detection precision in range (0, 1), higher values detect sharper edges only
    0.001, // matching vertice position detection precision (for example, along uv seams)
 );
 ```
