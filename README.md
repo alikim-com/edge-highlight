@@ -28,7 +28,7 @@ const mesh = init( // returns THREE.Mesh
 );
 ```
 
-Live usage example:
+Live example:
 https://alikim.com/qcode/html/edge_finder.html
 
 Discussion:
