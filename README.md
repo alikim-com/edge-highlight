@@ -28,6 +28,8 @@ const mesh = init( // returns THREE.Mesh
 );
 ```
 
+Object `config` is interactive, any changes to its values will be reflected on the next mesh render.
+
 Live example:
 https://alikim.com/qcode/html/edge_finder.html
 
