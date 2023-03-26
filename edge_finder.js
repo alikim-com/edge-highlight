@@ -59,7 +59,7 @@ uniform float wave;
 uniform float exp;
 
 float falloff(float exp, float arg) {
-	return exp > 1.0 ? pow(exp, -arg) : smoothstep(1.0, 0.0, arg);
+	return exp > 1.0 ? pow(exp, -max(0.0, arg)) : smoothstep(1.0, 0.0, arg);
 }
 
 void main() {   
@@ -91,7 +91,6 @@ void main() {
 		float sup = falloff(exp, fact.y * vup);
 
 		float s = max(sup, sdown);
-		float a = alpha ? 1.0 : s;
 		clr = vec4(mix(bg, fg, s));
 
 	} else if(mode == 2) {
@@ -343,4 +342,14 @@ const init = (_geo, Mesh, ShaderMaterial, Float32BufferAttribute, config, derr =
 	return mesh;
 };
 
-export { init }
+const extendGeo = (_geo, Mesh, ShaderMaterial, Float32BufferAttribute, derr = 0.001, perr = 0.001) => {
+   THREE.Mesh = Mesh;
+   THREE.ShaderMaterial = ShaderMaterial;
+   THREE.Float32BufferAttribute = Float32BufferAttribute;
+   const geo = _geo.index ? _geo.toNonIndexed() : _geo;
+   const data = createEdges(geo, derr, perr);
+   fixNotches(geo, data);
+   return geo;
+};
+
+export { init, extendGeo }
